@@ -10,10 +10,21 @@
 <h:body>
 
 	<h:form id = "buscaTarefa">		
-		<h:outputLabel id = "labelNumero" value = "Número"/>
-		<h:inputText id = "inputNumero" value = "#{tarefaBean.opcao1}"/><br/>
+		
+			
+		
+		
+		
+		<h:panelGrid id = "panel" columns = "2" border = "0"  cellpadding = "5" cellspacing = "2">
+            
+            <f:facet name = "header">
+               <h:outputText value = "Busca"/>
+            </f:facet>
+            
+          <h:outputLabel id = "labelNumero" value = "Número:"/>
+		<h:inputText id = "inputNumero" value = "#{tarefaBean.opcao1}"/>
 		<h:outputLabel id = "labelTituloDescricao" value = "Título/Descrição:"/>
-		<h:inputText id = "inputTituloDescricao" value = "#{tarefaBean.opcao2}" /><br/>
+		<h:inputText id = "inputTituloDescricao" value = "#{tarefaBean.opcao2}" />
 		<h:outputLabel id = "labelResponsavel" value = "Responsável:"/>
 		<h:selectOneMenu id = "selectResponsavel" value = "#{tarefaBean.opcao3}">
 			<f:selectItem itemValue = "" itemLabel = "" />			
@@ -26,10 +37,15 @@
 			<f:selectItem itemValue = "" itemLabel = "" />
 			<f:selectItem itemValue = "Em andamento" itemLabel = "Em andamento" />
 	  		<f:selectItem itemValue = "Concluída" itemLabel = "Concluída" />
-		</h:selectOneMenu><br/>		
-			
-		<h:commandButton id = "buttonBuscar" value= "Buscar" action = "#{tarefaBean.buscarTarefasFiltro}"/>		
-		
+		</h:selectOneMenu>
+            
+            
+            <f:facet name = "footer">
+               <h:panelGroup style = "display:block; text-align:center">
+                <h:commandButton id = "buttonBuscar" value= "Buscar" action = "#{tarefaBean.buscarTarefasFiltro}"/>		
+               </h:panelGroup>
+            </f:facet>
+         </h:panelGrid>	
 		
 		<br/><br/><br/>
 		
