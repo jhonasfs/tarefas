@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Frameset//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-frameset.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core">
+
+<head><title>Busca</title></head>
+
+	  
+<h:body>
+
+	<h:form id = "buscaTarefa">		
+		<h:outputLabel id = "labelNumero" value = "Número"/>
+		<h:inputText id = "inputNumero" value = "#{tarefaBean.opcao1}"/><br/>
+		<h:outputLabel id = "labelTituloDescricao" value = "Título/Descrição:"/>
+		<h:inputText id = "inputTituloDescricao" value = "#{tarefaBean.opcao2}" /><br/>
+		<h:outputLabel id = "labelResponsavel" value = "Responsável:"/>
+		<h:selectOneMenu id = "selectResponsavel" value = "#{tarefaBean.opcao3}">
+			<f:selectItem itemValue = "" itemLabel = "" />			
+			<f:selectItem itemValue = "João" itemLabel = "João" />
+	  		<f:selectItem itemValue = "Pedro" itemLabel = "Pedro" />
+	  		<f:selectItem itemValue = "Paulo" itemLabel = "Paulo" /> 
+		</h:selectOneMenu>
+		<h:outputLabel id = "labelSituacao" value = "Situação:"/>
+		<h:selectOneMenu id = "selectSituacao" value = "#{tarefaBean.opcao4}">
+			<f:selectItem itemValue = "" itemLabel = "" />
+			<f:selectItem itemValue = "Em andamento" itemLabel = "Em andamento" />
+	  		<f:selectItem itemValue = "Concluída" itemLabel = "Concluída" />
+		</h:selectOneMenu><br/>		
+			
+		<h:commandButton id = "buttonBuscar" value= "Buscar" action = "#{tarefaBean.buscarTarefasFiltro}"/>		
+		
+		
+		<br/><br/><br/>
+		
+		<h:dataTable value="#{tarefaBean.tarefas}" var="itemTarefa" border="1">
+			<h:column>
+				<f:facet name="header">
+					<h:outputText value="Número"/>					
+				</f:facet>
+				<h:outputText value="#{itemTarefa.id}"/>
+			</h:column>
+			<h:column>
+				<f:facet name="header">
+					<h:outputText value="Título"/>					
+				</f:facet>
+				<h:outputText value="#{itemTarefa.titulo}"/>
+			</h:column>
+			<h:column>
+				<f:facet name="header">
+					<h:outputText value="Responsável"/>					
+				</f:facet>
+				<h:outputText value="#{itemTarefa.responsavel}"/>
+			</h:column>
+			<h:column>
+				<f:facet name="header">
+					<h:outputText value="Ação"/>					
+				</f:facet>				
+				<h:commandLink value="editar" action="#{tarefaBean.editar(itemTarefa)}" />
+				<h:outputLabel value= " | "/>
+				<h:commandLink value="excluir" action="#{tarefaBean.remove(itemTarefa)}" />
+				<h:outputLabel value= " | "/>
+				<h:commandLink  value="concluir" action="#{tarefaBean.concluir(itemTarefa)}"  />				
+			</h:column>
+		</h:dataTable>
+		
+		<br/><br/>
+		<h:commandLink value="Cadastrar Tarefa" action="cadastro"/>
+	</h:form>
+
+
+</h:body>
+
+
+</html>

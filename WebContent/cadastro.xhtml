@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Frameset//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-frameset.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core">
+
+<head>
+	<title>Cadastro</title>
+</head>	  
+
+	  
+<h:body>
+
+	<h:form id = "cadastroTarefa">
+		<h:outputText id= "outputID" value = "#{tarefaBean.tarefa.id}"/><br/>
+		<h:outputLabel id = "labelTitulo" value = "Título:"/>
+		<h:inputText id = "inputTitulo" value = "#{tarefaBean.tarefa.titulo}"/><br/>
+		<h:outputLabel id = "labelDescricao" value = "Descrição:"/>
+		<h:inputTextarea id = "inputDescricao" value = "#{tarefaBean.tarefa.descricao}" rows = "5" cols = "20" /><br/>
+		<h:outputLabel id = "labelResponsavel" value = "Responsável:"/>		
+		
+		<h:selectOneMenu id = "selectResponsavel" value = "#{tarefaBean.tarefa.responsavel}">
+			<f:selectItem itemValue = "" itemLabel = "-" />
+			<f:selectItem itemValue = "" itemLabel = "Adicionar" />
+			<f:selectItem itemValue = "João" itemLabel = "João" />
+	  		<f:selectItem itemValue = "Pedro" itemLabel = "Pedro" />
+	  		<f:selectItem itemValue = "Paulo" itemLabel = "Paulo" /> 
+		</h:selectOneMenu>
+		
+		
+		<h:outputLabel id = "labelPrioridade" value = "Prioridade:"/>
+		<h:selectOneMenu id = "selectPrioridade" value = "#{tarefaBean.tarefa.prioridade}">
+			<f:selectItem itemValue = "1" itemLabel = "Baixa" /> 
+	  		<f:selectItem itemValue = "2" itemLabel = "Média" />
+	  		<f:selectItem itemValue = "3" itemLabel = "Alta" />  
+		</h:selectOneMenu><br/>
+		<h:outputLabel id = "labelDeadline" value = "Deadline:"/>
+		<h:inputText id = "inputDeadline" value = "#{tarefaBean.tarefa.deadline}">
+			<f:convertDateTime pattern="dd/MM/yyyy" timeZone="GMT-3" />
+		</h:inputText>  <br/>
+			
+		<h:commandButton id = "buttonCadastrar" value= "Cadastrar" action = "#{tarefaBean.salvar}"/>		
+		
+		<br/><br/>
+		<h:commandLink value="Buscar Tarefa" action="busca"/>	
+		
+	</h:form>
+
+
+</h:body>
+
+
+</html>
