@@ -10,11 +10,9 @@
 
 
 <h:body>
-	
+
 	<h:form id="cadastroTarefa" >
-			
-		
-		
+				
 		<h:panelGrid id = "panel" columns = "2" border = "0"  cellpadding = "5" cellspacing = "2">
             
             <f:facet name = "header">
@@ -31,7 +29,6 @@
 		<h:selectOneMenu id="selectResponsavel"
 			value="#{tarefaBean.tarefa.responsavel}">
 			<f:selectItem itemValue="" itemLabel="-" />
-			<f:selectItem itemValue="" itemLabel="Adicionar" />
 			<f:selectItem itemValue="João" itemLabel="João" />
 			<f:selectItem itemValue="Pedro" itemLabel="Pedro" />
 			<f:selectItem itemValue="Paulo" itemLabel="Paulo" />
@@ -59,11 +56,12 @@
                </h:panelGroup>
             </f:facet>
          </h:panelGrid>
-
-
-
-
+         <br/><br/>
+         <h:commandLink value="Buscar" action="busca" />
 	</h:form>
+	
+	
+	
 
 
 </h:body>
