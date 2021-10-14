@@ -49,7 +49,8 @@ public class TarefaBean {
 	 * @return String - retorna a página de busca após atualizar a tarefa.
 	 */
 	public String atualizar() {
-		tarefa = daoGeneric.merge(tarefa);			
+		tarefa = daoGeneric.merge(tarefa);
+		buscarTarefasFiltro();
 		return "busca";
 	}	
 	
@@ -61,6 +62,7 @@ public class TarefaBean {
 		t.setSituacao("Concluída");
 		tarefa = t;
 		atualizar();
+		buscarTarefasFiltro();
 		return "";
 	}	
 	

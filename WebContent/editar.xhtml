@@ -5,65 +5,68 @@
 	xmlns:f="http://java.sun.com/jsf/core">
 
 <head>
-	<title>Editar</title>
-</head>	  
+<title>Editar</title>
+</head>
 
-	  
+
 <h:body>
 
-	<h:form id = "editarTarefa">
-		
-			
-		
-		
-		
-		<h:panelGrid id = "panel" columns = "2" border = "0"  cellpadding = "5" cellspacing = "2">
-            
-            <f:facet name = "header">
-               <h:outputText value = "Editar"/>
-            </f:facet>            
-         
-		<h:outputLabel id = "labelTitulo" value = "Título:"/>
-		<h:inputText id = "inputTitulo" value = "#{tarefaBean.tarefa.titulo}"/>
-		<h:outputLabel id = "labelDescricao" value = "Descrição:"/>
-		<h:inputTextarea id = "inputDescricao" value = "#{tarefaBean.tarefa.descricao}" rows = "5" cols = "20" />
-		<h:outputLabel id = "labelResponsavel" value = "Responsável:"/>		
-		
-		<h:selectOneMenu id = "selectResponsavel" value = "#{tarefaBean.tarefa.responsavel}">
-			<f:selectItem itemValue = "" itemLabel = "-" />
-			<f:selectItem itemValue = "" itemLabel = "Adicionar" />
-			<f:selectItem itemValue = "João" itemLabel = "João" />
-	  		<f:selectItem itemValue = "Pedro" itemLabel = "Pedro" />
-	  		<f:selectItem itemValue = "Paulo" itemLabel = "Paulo" /> 
-		</h:selectOneMenu>
-		
-		
-		<h:outputLabel id = "labelPrioridade" value = "Prioridade:"/>
-		<h:selectOneMenu id = "selectPrioridade" value = "#{tarefaBean.tarefa.prioridade}">
-			<f:selectItem itemValue = "1" itemLabel = "Baixa" /> 
-	  		<f:selectItem itemValue = "2" itemLabel = "Média" />
-	  		<f:selectItem itemValue = "3" itemLabel = "Alta" />  
-		</h:selectOneMenu>
-		<h:outputLabel id = "labelDeadline" value = "Deadline:"/>
-		<h:inputText id = "inputDeadline" value = "#{tarefaBean.tarefa.deadline}">
-			<f:convertDateTime pattern="dd/MM/yyyy" timeZone="GMT-3" />
-		</h:inputText>
-		<h:outputLabel id = "labelSituacao" value = "Situação:"/>
-		<h:selectOneMenu id = "selectSituacao" value = "#{tarefaBean.tarefa.situacao}">			
-			<f:selectItem itemValue = "Em andamento" itemLabel = "Em andamento" />
-	  		<f:selectItem itemValue = "Concluída" itemLabel = "Concluída" />
-		</h:selectOneMenu>		
-           
-           
-            <f:facet name = "footer">
-               <h:panelGroup style = "display:block; text-align:center">
-                 <h:commandButton id = "buttonAtualizar" value= "Atualizar" action = "#{tarefaBean.atualizar}"/>
-		<h:commandButton id = "buttonCancelar" value= "Cancelar" action = "buscar"/>
-               </h:panelGroup>
-            </f:facet>
-         </h:panelGrid>
-		
-		
+	<h:form id="editarTarefa">
+
+		<h:panelGrid id="panel" columns="2" border="0" cellpadding="5"
+			cellspacing="2">
+
+			<f:facet name="header">
+				<h:outputText value="Editar" />
+			</f:facet>
+
+			<h:outputLabel id="labelTitulo" value="Título:" />
+			<h:inputText id="inputTitulo" value="#{tarefaBean.tarefa.titulo}" />
+			<h:outputLabel id="labelDescricao" value="Descrição:" />
+			<h:inputTextarea id="inputDescricao"
+				value="#{tarefaBean.tarefa.descricao}" rows="5" cols="20" />
+			<h:outputLabel id="labelResponsavel" value="Responsável:" />
+
+			<h:selectOneMenu id="selectResponsavel"
+				value="#{tarefaBean.tarefa.responsavel}">
+				<f:selectItem itemValue="" itemLabel="-" />
+				<f:selectItem itemValue="" itemLabel="Adicionar" />
+				<f:selectItem itemValue="João" itemLabel="João" />
+				<f:selectItem itemValue="Pedro" itemLabel="Pedro" />
+				<f:selectItem itemValue="Paulo" itemLabel="Paulo" />
+			</h:selectOneMenu>
+
+
+			<h:outputLabel id="labelPrioridade" value="Prioridade:" />
+			<h:selectOneMenu id="selectPrioridade"
+				value="#{tarefaBean.tarefa.prioridade}">
+				<f:selectItem itemValue="1" itemLabel="Baixa" />
+				<f:selectItem itemValue="2" itemLabel="Média" />
+				<f:selectItem itemValue="3" itemLabel="Alta" />
+			</h:selectOneMenu>
+			<h:outputLabel id="labelDeadline" value="Deadline:" />
+			<h:inputText id="inputDeadline" value="#{tarefaBean.tarefa.deadline}">
+				<f:convertDateTime pattern="dd/MM/yyyy" timeZone="GMT-3" />
+			</h:inputText>
+			<h:outputLabel id="labelSituacao" value="Situação:" />
+			<h:selectOneMenu id="selectSituacao"
+				value="#{tarefaBean.tarefa.situacao}">
+				<f:selectItem itemValue="Em andamento" itemLabel="Em andamento" />
+				<f:selectItem itemValue="Concluída" itemLabel="Concluída" />
+			</h:selectOneMenu>
+
+
+			<f:facet name="footer">
+				<h:panelGroup style="display:block; text-align:center">
+					<h:commandButton id="buttonAtualizar" value="Atualizar"
+						action="#{tarefaBean.atualizar}" />
+					<h:commandButton id="buttonCancelar" value="Cancelar"
+						action="busca" />
+				</h:panelGroup>
+			</f:facet>
+		</h:panelGrid>
+
+
 	</h:form>
 
 
